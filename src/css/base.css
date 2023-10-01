@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    outline: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    /* outline: none; */
+}
