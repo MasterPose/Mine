@@ -1,0 +1,18 @@
+<div x-bind="darkMode">
+    <template x-if="$store.app.posts.length">
+        <ul class="" style="word-break: break-word;">
+
+            <template x-for="post in $store.app.posts">
+                <li class="block p-3 space-y-2 bg-gray-50 border-b-2 border-gray-300 transition-colors duration-300 cursor-pointer hover:bg-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 dark:hover:bg-opacity-50 hover:bg-opacity-50 dark:border-gray-700">
+                    <x-component url="/components/note.html" x-data="{post}" styles="global"></x-component>
+                </li>
+            </template>
+        </ul>
+    </template>
+    <template x-if="!$store.app.posts.length">
+        <div class="mx-auto my-20 space-y-5 max-w-xl text-gray-400 dark:text-gray-600">
+            <q class="text-5xl">Your timeline is empty</q>
+            <p class="text-2xl text-right">- Captain Obvious</p>
+        </div>
+    </template>
+</div>

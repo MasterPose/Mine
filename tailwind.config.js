@@ -3,10 +3,13 @@ module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,html}",
-
   ],
+  darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        twitter: '#1d9bf0'
+      },
       typography: {
         DEFAULT: {
           css: {
@@ -22,6 +25,11 @@ module.exports = {
       },
     },
   },
+  safelist: [
+    'pl-4',
+    'pl-8',
+    'pl-12',
+  ],
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),

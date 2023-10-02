@@ -2,12 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    outline: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    /* outline: none; */
+@layer base {
+    ::selection {
+        @apply text-white bg-indigo-500;
+    }
+
+    *,
+    *::before,
+    *::after {
+        -webkit-tap-highlight-color: transparent;
+        scrollbar-width: thin;
+        scrollbar-color: inherit;
+        @apply select-none;
+    }
+
+    ::-webkit-scrollbar {
+        @apply w-1;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply dark:bg-gray-900;
+    }
+
+    ::-webkit-scrollbar-corner {
+        @apply dark:bg-gray-900;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply rounded-3xl dark:bg-gray-500;
+    }
+
+    body {
+        @apply relative p-0 m-0 h-full min-h-screen bg-black scroll-smooth;
+    }
+
+    textarea {
+        @apply border-0 transition-colors dark:bg-gray-900 focus:ring-0;
+    }
+
+    input {
+        @apply border-0 transition-colors dark:bg-gray-900 focus:ring-0;
+    }
+
+    a {
+        @apply select-text;
+    }
+
+    .select-text * {
+        @apply select-none
+    }
 }

@@ -1,0 +1,75 @@
+<article x-data="note(post)" x-bind="bind">
+    <div x-bind="darkMode" class="flex relative gap-1 md:gap-5">
+        <div>
+            <x-component url="/icon/User.svg" class="inline-block w-16 h-16 dark:text-white"></x-component>
+        </div>
+        <div class="w-full">
+            <div class="mb-2 space-y-2">
+                <h3 class="flex flex-wrap gap-x-5">
+                    <span class="font-bold" x-text="truncatedName"></span>
+                    <span class="flex gap-2 text-sm text-gray-500">
+                        <span class="overflow-hidden w-min overflow-ellipsis whitespace-nowrap md:w-max">
+                            @<span x-text="username"></span>
+                        </span>
+                        <span aria-hidden="true">·</span>
+                        <span x-text="ago"></span>
+                        <span x-show="post.isEdited()">(edited)</span>
+                    </span>
+                </h3>
+                <p class="max-w-5xl break-words" x-html="post.content">
+                </p>
+            </div>
+
+            <template x-if="controls">
+                <div>
+                    <div class="flex justify-between pr-6 w-full max-w-xs md:pr-0">
+                        <button class="p-2 text-gray-500 rounded-full border-0 transition duration-500 hover:text-green-500 hover:bg-green-500 hover:bg-opacity-20" x-on:click="">
+                            <x-component styles="global" url="/icon/ChatBubbleBottomCenterText.svg" class="inline-block w-6 h-6">
+                            </x-component>
+                        </button>
+                        <button class="p-2 text-gray-500 rounded-full border-0 transition duration-500 hover:text-yellow-500 hover:bg-yellow-500 hover:bg-opacity-20" x-on:click="">
+                            <span x-show="!post.isBookmarked">
+                                <x-component styles="global" url="/icon/Bookmark.svg" class="inline-block w-6 h-6">
+                                </x-component>
+                            </span>
+                            <span x-show="post.isBookmarked" x-cloak class="text-yellow-500">
+                                <x-component styles="global" url="/icon/Bookmark-Solid.svg" class="inline-block w-6 h-6">
+                                </x-component>
+                            </span>
+                        </button>
+                        <div class="flex">
+                            <button class="flex p-2 space-x-2 font-bold text-gray-500 rounded-full border-0 transition duration-500 hover:text-indigo-500 hover:bg-indigo-500 hover:bg-opacity-20">
+                                <span x-show="!post.isLiked">
+                                    <x-component styles="global" url="/icon/Heart.svg" class="inline-block w-6 h-6">
+                                    </x-component>
+                                </span>
+                                <span x-show="post.isLiked" x-cloak class="text-indigo-500">
+                                    <x-component styles="global" url="/icon/Heart-Solid.svg" class="inline-block w-6 h-6">
+                                    </x-component>
+                                    <span> 1</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button class="absolute top-0 right-0 px-2 py-1 text-gray-500 rounded-full border-0 transition duration-500 hover:bg-opacity-20 hover:text-twitter hover:bg-twitter" x-on:click="">
+                        <x-component url="/icon/EllipsisHorizontal.svg" class="inline-block w-4 h-4"></x-component>
+                    </button>
+                    <div x-show="showMenu" class="absolute top-0 right-8 -ml-6">
+                        <ul class="px-5 py-2 bg-gray-100 rounded-lg divide-y divide-gray-700 dark:bg-gray-800">
+                            <li>
+                                <button class="block py-2 w-full" x-on:click="">Edit</button>
+                            </li>
+                            <li>
+                                <button class="block py-2 w-full" x-on:click="">Copy text</button>
+                            </li>
+                            <li>
+                                <button class="block py-2 w-full" x-on:click="">Delete</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</article>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Awesome Capacitor App</title>
+    <title>Mine: The first antisocial network</title>
     <meta name="viewport"
           content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="format-detection" content="telephone=no" />
@@ -18,13 +18,21 @@
 <body>
     <!-- * ROUTES * -->
     <div x-data>
-        <template x-route="/" x-view="/views/home.html"></template>
-        <template x-route="/about" x-view="/views/about.html"></template>
+        <template x-route="/" x-view="/views/app.html"></template>
         <template x-route="notfound" x-handler="() => $router.navigate('/')"></template>
     </div>
     <!-- * END ROUTES *  -->
 
-    <div id="app"></div>
+    <div x-data x-bind="darkMode">
+        <div class="bg-gray-50 transition-colors dark:bg-gray-900">
+            <div class="container flex flex-col pb-20 mx-auto text-gray-800 border-gray-300 divide-gray-300 transition-colors md:pb-0 border-x-2 md:border-l-0 dark:border-gray-700 md:flex-row md:divide-x-2 dark:text-gray-50 dark:divide-gray-700">
+                <aside class="fixed right-0 bottom-0 left-0 z-10 order-last pt-2 pb-4 bg-gray-50 shadow-2xl md:py-5 shadow-black lg:pl-10 md:pr-10 md:shadow-none dark:bg-gray-900 md:relative md:order-none md:space-y-7">
+                    <x-component url="/components/navigation.html" styles="global" />
+                </aside>
+                <div id="app"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- * MODULES * -->
     <script src="./js/app.js" type="module"></script>

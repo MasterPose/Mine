@@ -40,6 +40,9 @@ export const Post = ({
     parentId,
     createdAt,
     updatedAt,
+    isEdited() {
+        return this.updatedAt !== null;
+    },
     extractCategories() {
         return [
             ...new Set(

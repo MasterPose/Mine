@@ -1,0 +1,35 @@
+<div x-bind="darkMode">
+    <button class="hidden lg:pl-5 md:inline-block" title="Mine The first antisocial network">
+        <h1 class="sr-only">Mine - The first antisocial network</h1>
+    </button>
+
+    <nav>
+        <ul class="flex flex-wrap gap-6 justify-around text-xl lg:gap-3 md:flex-col md:justify-start">
+            <li>
+                <button x-on:click="$store.app.slideTo(0)" class="flex gap-2 items-center p-2 font-medium rounded-3xl transition duration-300 cursor-pointer lg:px-6 lg:py-3 hover:bg-black hover:bg-opacity-10 dark:hover:bg-white dark:hover:bg-opacity-10">
+                    <x-component url="/icon/RectangleStack.svg" class="w-6 h-6 md:w-8 md:h-8"></x-component>
+                    <span class="hidden lg:inline-block">Home</span>
+                </button>
+            </li>
+            <li>
+                <button x-on:click="$store.app.slideTo(1)" class="flex gap-2 items-center p-2 font-medium rounded-3xl transition duration-300 cursor-pointer lg:px-6 lg:py-3 hover:bg-black hover:bg-opacity-10 dark:hover:bg-white dark:hover:bg-opacity-10">
+                    <x-component url="/icon/User.svg" class="w-6 h-6 md:w-8 md:h-8"></x-component>
+                    <span class="hidden lg:inline-block">Profile</span>
+                </button>
+            </li>
+            <li>
+                <button x-on:click="$store.app.slideTo(2)" class="flex gap-2 items-center p-2 font-medium rounded-3xl transition duration-300 cursor-pointer lg:px-6 lg:py-3 hover:bg-black hover:bg-opacity-10 dark:hover:bg-white dark:hover:bg-opacity-10">
+                    <x-component url="/icon/InformationCircle.svg" class="w-6 h-6 md:w-8 md:h-8"></x-component>
+                    <span class="hidden lg:inline-block">Info</span>
+                </button>
+            </li>
+            <li>
+                <button class="flex gap-2 items-center p-2 font-medium text-white bg-indigo-500 rounded-3xl transition duration-300 cursor-pointer lg:px-6 lg:py-3">
+                    <x-component url="/icon/PencilSquare.svg" class="w-6 h-6 md:w-8 md:h-8"></x-component>
+                    <span class="hidden lg:inline-block">Post</span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+</div>

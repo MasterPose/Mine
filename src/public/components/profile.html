@@ -1,0 +1,62 @@
+<div class="flex flex-col h-full">
+    <section>
+        <div class="h-48 bg-indigo-500">
+        </div>
+        <div class="mx-5 max-w-6xl">
+            <div class="flex">
+                <div class="overflow-hidden absolute ml-2 text-gray-50 bg-indigo-500 rounded-full border-4 border-gray-50 transform -translate-y-1/2 dark:border-gray-900">
+                    <x-component url="/icon/User.svg" class="inline-block w-24 h-24 md:w-32 md:h-32" />
+                </div>
+                <button
+                        x-on:click=""
+                        class="px-3 py-1 mt-5 ml-auto rounded-3xl border border-gray-500 h-max">Preferences</button>
+            </div>
+            <div class="mt-5">
+                <div>
+                    <h1 class="text-xl font-bold break-words" x-text="$store.app.profile.name">
+
+                    </h1>
+                    <h2 class="text-gray-500 break-words">
+                        @<span x-text="$store.app.profile.username"></span>
+                    </h2>
+                </div>
+                <div class="max-w-4xl break-words" x-html="$store.app.profile.bio">
+                </div>
+            </div>
+        </div>
+        <nav class="py-5 border-b-2 border-gray-500">
+            <ul class="flex gap-10 justify-center overflow-x-scroll max-w-[100vw]">
+                <li>
+                    <button class="py-2 font-bold border-indigo-500" x-on:click="">Notes</button>
+                </li>
+                <li>
+                    <button class="py-2 font-bold border-indigo-500" x-on:click="">
+                        Liked
+                    </button>
+                </li>
+                <li>
+                    <button class="py-2 font-bold border-indigo-500" x-on:click="">Collections</button>
+                </li>
+            </ul>
+        </nav>
+    </section>
+    <section class="flex-1">
+        <div x-data="navigationSlider" class="h-full">
+            <div class="h-full glide" x-ref="glide">
+                <div class="h-full glide__track" data-glide-el="track">
+                    <ul class="h-full glide__slides">
+                        <li class="glide__slide">
+                            <x-component url="/components/feed.html" styles="global" />
+                        </li>
+                        <li class="glide__slide">
+                            <x-component url="/components/feed.html" styles="global" />
+                        </li>
+                        <li class="glide__slide">
+                            <x-component url="/components/feed.html" styles="global" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

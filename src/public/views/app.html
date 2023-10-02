@@ -1,0 +1,30 @@
+<div x-data="navigationSlider" x-bind="bind" id="main-slider">
+    <div class="glide" x-ref="glide">
+        <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides" x-bind="dragBind">
+                <li class="glide__slide">
+                    <div class="flex flex-col h-full">
+                        <div class="p-5 border-b-2 border-gray-300 dark:border-gray-700">
+                            <h2 class="text-lg font-bold">Home</h2>
+                        </div>
+                        <div class="flex-1">
+                            <x-component url="/components/feed.html" styles="global" />
+                        </div>
+                    </div>
+                </li>
+                <li class="glide__slide">
+                    <div class="flex flex-col h-full">
+                        <x-component class="flex flex-col flex-1" url="/components/profile.html" styles="global" />
+                    </div>
+                </li>
+                <li class="glide__slide">
+                    <div class="flex flex-col h-full">
+                        <div class="flex-1">
+                            <x-component url="/components/about.html" styles="global" />
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

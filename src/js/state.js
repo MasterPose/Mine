@@ -16,7 +16,7 @@ export default {
     _oldData: {},
     profile: Alpine.$persist({
         name: 'My name',
-        username: 'My username',
+        username: 'myusername',
         bio: 'Mine is your personal space. Try customizing it!',
         picture: null,
         banner: null
@@ -62,6 +62,13 @@ export default {
         Alpine.effect(() => {
             /* Your code goes here */
         });
+    },
+    slideTo(index) {
+        document.querySelector('#main-slider').dispatchEvent(new CustomEvent('goTo', {
+            detail: {
+                index: index
+            }
+        }));
     },
     async migrateOldData() {
         this._oldData = {

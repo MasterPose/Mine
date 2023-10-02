@@ -25,7 +25,6 @@ export const LzStorage = {
         return this.storage.decompressFromUTF16(value);
     },
     setItem(key, value) {
-        console.log(key, value);
         const compressed = this.storage.compressToUTF16(value);
 
         localStorage.setItem(key, compressed);
